@@ -1,3 +1,25 @@
 {
-    "name": "please-work"
+  "name": "markdown-calendar",
+  "description": "",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "fullcalendar": "^3.0.1",
+    "jquery": "^3.1.1",
+    "moment": "^2.16.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mwodka/markdown-calendar.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mwodka/markdown-calendar/issues"
+  },
+  "homepage": "https://github.com/mwodka/markdown-calendar#readme"
 }
