@@ -1,0 +1,1 @@
+$ sequelize model:create --name Lesson --attributes "chapter:string,subject:string,length:number"

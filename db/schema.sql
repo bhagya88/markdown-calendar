@@ -20,7 +20,8 @@ CREATE TABLE students(
 id INTEGER(5),
 name VARCHAR(100),
 email VARCHAR(100),
-schedule_id INTEGER(5),
+schedule VARCHAR(100),
+cohort_id INTEGER(5),
 PRIMARY KEY (id),
 FOREIGN KEY (schedule_id) REFERENCES schedule(id)
 );
@@ -30,9 +31,8 @@ id INTEGER(5),
 name VARCHAR(100),
 campus VARCHAR(100),
 city VARcHAR(100),
-schedule_id INTEGER(5) FOREIGN KEY
-PRIMARY KEY (id),
-FOREIGN KEY (schedule_id) REFERENCES schedule(id)
+schedule VARCHAR(100),
+PRIMARY KEY (id)
 )
 
 CREATE TABLE schedule(
@@ -42,6 +42,7 @@ date1 DATE,
 date2 DATE,
 recording1 VARCHAR(100),
 recording2 VARCHAR(100),
+schedule VARCHAR(100),
 PRIMARY KEY (id),
 FOREIGN KEY (lesson_id) REFERENCES lessons(id)
 )
