@@ -8,9 +8,11 @@
 CREATE DATABASE utbootcamp;
 USE utbootcamp;
 
-CREATE TABLE classes(
-id INTEGER(5 class_name VARCHAR(100),
-class_length NUMBER(1),
+CREATE TABLE lessons(
+id INTEGER(5),
+chapter VARCHAR(100),
+subject VARCHAR(100)
+length NUMBER(1),
 PRIMARY KEY (id)
 );
 
@@ -25,9 +27,9 @@ FOREIGN KEY (schedule_id) REFERENCES schedule(id)
 
 CREATE TABLE cohorts(
 id INTEGER(5),
-cohort_name VARCHAR(100),
-cohort_campus VARCHAR(100),
-cohort_city VARcHAR(100),
+name VARCHAR(100),
+campus VARCHAR(100),
+city VARcHAR(100),
 schedule_id INTEGER(5) FOREIGN KEY
 PRIMARY KEY (id),
 FOREIGN KEY (schedule_id) REFERENCES schedule(id)
@@ -35,10 +37,11 @@ FOREIGN KEY (schedule_id) REFERENCES schedule(id)
 
 CREATE TABLE schedule(
 id INTEGER(5),
-class_id INTEGER(5),
-class_name VARCHAR(100),
-class_length NUMBER(1),
-start_date DATE,
+lesson_id INTEGER(5),
+date1 DATE,
+date2 DATE,
+recording1 VARCHAR(100),
+recording2 VARCHAR(100),
 PRIMARY KEY (id),
-FOREIGN KEY (class_id) REFERENCES schedule(id)
+FOREIGN KEY (lesson_id) REFERENCES lessons(id)
 )
