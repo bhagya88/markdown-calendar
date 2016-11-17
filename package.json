@@ -7,7 +7,8 @@
     "fullcalendar": "^3.0.1",
     "jquery": "^3.1.1",
     "moment": "^2.16.0",
-    "nodemailer": "^2.6.4"
+    "nodemailer": "^2.6.4",
+    "sequelize": "^3.26.0"
   },
   "devDependencies": {},
   "scripts": {
