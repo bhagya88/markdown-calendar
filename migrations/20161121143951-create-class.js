@@ -11,7 +11,7 @@ module.exports = {
       subject: {
         type: Sequelize.STRING
       },
-      chapter: {
+      lesson: {
         type: Sequelize.STRING
       },
       length: {

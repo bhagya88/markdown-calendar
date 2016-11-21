@@ -10,13 +10,15 @@ PRIMARY KEY (id)
 );
 
 ---------------------------------------------------
-sequelize model:create --name Class --attributes "date1:Date,date2:Date,instructor1:string,instructor2:string,recording1:string,recording2:string,cohort_name:string"
+sequelize model:create --name Class --attributes "subject:string,lesson:string,length:integer,date1:Date,date2:Date,instructor1:string,instructor2:string,recording1:string,recording2:string,cohort_name:string"
 
 
 
 CREATE TABLE Classes(
 id INTEGER(5),
-lesson_id INTEGER(5),
+subject VARCHAR(100),
+chapter VARCHAR(100),
+length NUMBER(1)
 date1 DATE,
 date2 DATE,
 instructor1 VARCHAR(100),
@@ -40,7 +42,7 @@ PRIMARY KEY (id)
 )
 
 ------------------------------
-sequelize model:create --name Student --attributes "name:string,email:string,cohort_name:string"
+sequelize model:create --name User --attributes "name:string,email:string,cohort_name:string,role:string"
 
 
 CREATE TABLE Students(
@@ -48,6 +50,7 @@ id INTEGER(5),
 name VARCHAR(100),
 email VARCHAR(100),
 cohort_name INTEGER(5),
+role VARCHAR(100),
 PRIMARY KEY (id),
 FOREIGN KEY (schedule_id) REFERENCES schedule(id)
 );

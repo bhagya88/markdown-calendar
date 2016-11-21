@@ -2,7 +2,7 @@
 module.exports = function(sequelize, DataTypes) {
   var Class = sequelize.define('Class', {
     subject: DataTypes.STRING,
-    chapter: DataTypes.STRING,
+    lesson: DataTypes.STRING,
     length: DataTypes.INTEGER,
     date1: DataTypes.DATE,
     date2: DataTypes.DATE,
