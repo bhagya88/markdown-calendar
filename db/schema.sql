@@ -47,7 +47,6 @@ cohort_name
 name VARCHAR(100),
 campus VARCHAR(100),
 city VARcHAR(100),
-schedule VARCHAR(100),
 PRIMARY KEY (id)
 )
 

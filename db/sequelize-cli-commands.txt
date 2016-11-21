@@ -1,4 +1,4 @@
-sequelize model:create --name Lesson --attributes "chapter:string,subject:string,length:number"
+sequelize model:create --name Lesson --attributes "chapter:string,subject:string,duration:number"
 
 
 CREATE TABLE Lessons(
@@ -28,7 +28,7 @@ PRIMARY KEY (id),
 FOREIGN KEY (lesson_id) REFERENCES lessons(id)
 
 ---------------------------------------------------
-sequelizde model:create --name Cohort --attributes "cohort_name:string,campus:string,city;string,state:string,zip:string"
+sequelize model:create --name Cohort --attributes "cohort_name:string,campus:string,city:string,state:string,zip:string"
 
 CREATE TABLE Cohorts(
 id INTEGER(5),
@@ -40,7 +40,7 @@ PRIMARY KEY (id)
 )
 
 ------------------------------
-sequelizde model:create --name Student --attributes "name:string,email:string,cohort_name"
+sequelize model:create --name Student --attributes "name:string,email:string,cohort_name:string"
 
 
 CREATE TABLE Students(
