@@ -10,7 +10,7 @@ module.exports = {
     var p = new Promise(function(resolve,reject){
 
         // read the csv file
-        fs.readFile(path.join(__dirname,'..','db','lessons1.csv'),'utf8',function(err,contents){
+        fs.readFile(path.join(__dirname,'..','db','lessons.csv'),'utf8',function(err,contents){
               if(err){
                 reject(err);
               }else{
