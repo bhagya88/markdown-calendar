@@ -8,7 +8,7 @@
 CREATE DATABASE utbootcamp;
 USE utbootcamp;
 
-CREATE TABLE lessons(
+CREATE TABLE Lessons(
 id INTEGER(5),
 chapter VARCHAR(100),
 subject VARCHAR(100)
@@ -16,26 +16,8 @@ length NUMBER(1),
 PRIMARY KEY (id)
 );
 
-CREATE TABLE students(
-id INTEGER(5),
-name VARCHAR(100),
-email VARCHAR(100),
-schedule VARCHAR(100),
-cohort_id INTEGER(5),
-PRIMARY KEY (id),
-FOREIGN KEY (schedule_id) REFERENCES schedule(id)
-);
 
-CREATE TABLE cohorts(
-id INTEGER(5),
-name VARCHAR(100),
-campus VARCHAR(100),
-city VARcHAR(100),
-schedule VARCHAR(100),
-PRIMARY KEY (id)
-)
-
-CREATE TABLE schedule(
+CREATE TABLE Classes(
 id INTEGER(5),
 lesson_id INTEGER(5),
 date1 DATE,
@@ -44,7 +26,28 @@ instructor1 VARCHAR(100),
 instructor2 VARCHAR(100),
 recording1 VARCHAR(100),
 recording2 VARCHAR(100),
-schedule VARCHAR(100),
+cohort_name VARCHAR(100),
 PRIMARY KEY (id),
 FOREIGN KEY (lesson_id) REFERENCES lessons(id)
+
+
+
+CREATE TABLE students(
+id INTEGER(5),
+name VARCHAR(100),
+email VARCHAR(100),
+cohort_name INTEGER(5),
+PRIMARY KEY (id),
+FOREIGN KEY (schedule_id) REFERENCES schedule(id)
+);
+
+CREATE TABLE cohorts(
+id INTEGER(5),
+cohort_name
+name VARCHAR(100),
+campus VARCHAR(100),
+city VARcHAR(100),
+schedule VARCHAR(100),
+PRIMARY KEY (id)
 )
+
