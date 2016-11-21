@@ -8,13 +8,13 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      chapter: {
-        type: Sequelize.STRING
-      },
       subject: {
         type: Sequelize.STRING
       },
-      duration: {
+      chapter: {
+        type: Sequelize.STRING
+      },
+      length: {
         type: Sequelize.INTEGER
       },
       createdAt: {

@@ -1,11 +1,11 @@
-sequelize model:create --name Lesson --attributes "chapter:string,subject:string,duration:number"
+sequelize model:create --name Lesson --attributes "subject:string,chapter:string,length:integer"
 
 
 CREATE TABLE Lessons(
 id INTEGER(5),
+subject VARCHAR(100),
 chapter VARCHAR(100),
-subject VARCHAR(100)
-length NUMBER(1),
+length NUMBER(1)
 PRIMARY KEY (id)
 );
 
