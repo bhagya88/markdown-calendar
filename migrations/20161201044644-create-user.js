@@ -14,6 +14,9 @@ module.exports = {
       email: {
         type: Sequelize.STRING
       },
+      github_username: {
+        type: Sequelize.STRING
+      },
       cohort_name: {
         type: Sequelize.STRING
       },

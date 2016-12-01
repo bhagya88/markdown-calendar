@@ -6,7 +6,7 @@ var models = require('../models');
 module.exports = {
   up: function (queryInterface, Sequelize) {
 
-
+    // convert callback into a promise
     var p = new Promise(function(resolve,reject){
 
         // read the csv file
@@ -16,10 +16,14 @@ module.exports = {
               }else{
            
                 // convert csv file contents to array of objects
-                  var classesArr = contents.trim().split('\r\n')
+                  var classesArr = contents.trim().split('\r\n')  // converts it into array of lines
+
+                              // converts each line into array of columns values
                               .map(function(line){
                                 return line.split(',');
                               })
+
+                              // converts each line from an array to an object and returns an array of objects
                               .reduce(function(classes,row){
                                 classes = classes || [];
                                 classes.push({
@@ -39,9 +43,6 @@ module.exports = {
   
   // return the promise
    return p.then(function(data){
-
-      console.log("DATA");
-      console.log(data);
       return models.Class.bulkCreate(data);
    })
 
