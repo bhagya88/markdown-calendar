@@ -8,6 +8,7 @@ var GitHubStrategy = require('passport-github2').Strategy;
 var partials = require('express-partials');
 var exphbs =require('express-handlebars');
 var path = require('path');
+var loginUser = require('./login_user');
 
 
 //var GITHUB_CLIENT_ID = "74c4b1537ab47e92faa7";
@@ -31,7 +32,7 @@ passport.deserializeUser(function(obj, done) {
 
 var URL = "";
 if (process.env.NODE_ENV == "production") {
-  URL = "https://secret-ridge-71206.herokuapp.com";
+  URL = "https://vast-refuge-31823.herokuapp.com/";
 } else {
   URL = "http://127.0.0.1:3000";
 }
@@ -93,8 +94,9 @@ app.get('/', function(req, res){
 });
 
 app.get('/account', ensureAuthenticated, function(req, res){
-  //console.log(req.user);
- // res.render('account', { user: req.user });
+
+ loginUser(req.user);
+ console.log(loginUser());
 res.render('account', req.user);
 
 });
