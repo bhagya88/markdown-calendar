@@ -13,8 +13,8 @@ var loginUser = require('./login_user');
 
 //var GITHUB_CLIENT_ID = "74c4b1537ab47e92faa7";
 //var GITHUB_CLIENT_SECRET = "b1616763c3691d72d1ef4f46cc3fd189d6a9c24f";
-var GITHUB_CLIENT_ID = "4ec4c231d857c30d7b06";
-var GITHUB_CLIENT_SECRET = "5c68545e36e9325e934703155957b14c445b6442";
+var GITHUB_CLIENT_ID; 
+var GITHUB_CLIENT_SECRET; 
 // Passport session setup.
 //   To support persistent login sessions, Passport needs to be able to
 //   serialize users into and deserialize users out of the session.  Typically,
@@ -32,9 +32,13 @@ passport.deserializeUser(function(obj, done) {
 
 var URL = "";
 if (process.env.NODE_ENV == "production") {
-  URL = "https://vast-refuge-31823.herokuapp.com";
+  URL = "https://stark-river-57878.herokuapp.com";
+  GITHUB_CLIENT_ID = "15db6294f8404ff17d89";
+  GITHUB_CLIENT_SECRET = "7787e86563acb5726194722cbc4e48243d5afedc";
 } else {
   URL = "http://127.0.0.1:3000";
+  GITHUB_CLIENT_ID = "4ec4c231d857c30d7b06";
+  GITHUB_CLIENT_SECRET = "5c68545e36e9325e934703155957b14c445b6442";
 }
 
 // Use the GitHubStrategy within Passport.
@@ -94,8 +98,9 @@ app.get('/', function(req, res){
 });
 
 app.get('/account', ensureAuthenticated, function(req, res){
-
+ // set login_user 
  loginUser(req.user);
+ // get login_user
  console.log(loginUser());
 res.render('account', req.user);
 
