@@ -32,7 +32,7 @@ passport.deserializeUser(function(obj, done) {
 
 var URL = "";
 if (process.env.NODE_ENV == "production") {
-  URL = "https://vast-refuge-31823.herokuapp.com/";
+  URL = "https://vast-refuge-31823.herokuapp.com";
 } else {
   URL = "http://127.0.0.1:3000";
 }
