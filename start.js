@@ -119,10 +119,7 @@ app.get('/account', ensureAuthenticated, function(req, res){
     console.log(err);
   })
 
-}).catch(function(err) {
-  console.log('app.get /account');
-  console.log(err);
-});
+})
 
 app.use('/users',usersRoute);
 app.use('/classes',classesRoute);
