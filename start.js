@@ -114,8 +114,14 @@ app.get('/account', ensureAuthenticated, function(req, res){
  }).then(function(results){
   res.render('index', {classes: results});
 
-  })
+  }).catch(function(err) {
+    console.log('models.Class.findAll');
+    console.log(err);
+  }
 
+}).catch(function(err) {
+  console.log('app.get /account');
+  console.log(err);
 });
 
 app.use('/users',usersRoute);
