@@ -19,7 +19,7 @@ router.get('/',function (req, res) {
 	})
 	.then(function(results){
 				
-			console.log(results);
+			//console.log(results);
 			res.json(results);
 		  	// res.render('index',{
 		  	// 	users: results
