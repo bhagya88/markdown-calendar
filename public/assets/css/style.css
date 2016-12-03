@@ -54,7 +54,10 @@ body{
 }
 
 .header div span{
+	/*
 	color: #5379fa !important;
+	*/
+	color: white !important;
 }
 
 .login{
