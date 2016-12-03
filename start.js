@@ -9,7 +9,11 @@ var partials = require('express-partials');
 var exphbs =require('express-handlebars');
 var path = require('path');
 var loginUser = require('./login_user');
-
+var logger = require('morgan');
+var usersRoute = require('./routes/usersRoute.js');
+var classesRoute = require('./routes/classesRoute.js');
+var models  = require('./models');
+var sequelizeConnection = models.sequelize;
 
 //var GITHUB_CLIENT_ID = "74c4b1537ab47e92faa7";
 //var GITHUB_CLIENT_SECRET = "b1616763c3691d72d1ef4f46cc3fd189d6a9c24f";
@@ -64,7 +68,7 @@ passport.use(new GitHubStrategy({
   }
 ));
 
-
+sequelizeConnection.sync();
 
 
 var app = express();
@@ -82,6 +86,8 @@ app.engine('handlebars',exphbs({
 app.set('view engine', 'handlebars');
 app.use(partials());
 
+app.use(logger('combined'));
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(methodOverride());
@@ -91,7 +97,7 @@ app.use(session({ secret: 'keyboard cat', resave: false, saveUninitialized: fals
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.static(__dirname + '/public'));
-
+app.use('/node_modules', express.static(__dirname + '/node_modules/'));
 
 app.get('/', function(req, res){
   res.sendFile(path.join(__dirname, 'public/assets/html/landing.html'));
@@ -102,9 +108,19 @@ app.get('/account', ensureAuthenticated, function(req, res){
  loginUser(req.user);
  // get login_user
  console.log(loginUser());
-res.render('account', req.user);
+  //res.sendFile(path.join(__dirname, 'index.html'));
+ models.Class.findAll({
+    attributes: ['lesson', 'subject']
+ }).then(function(results){
+  res.render('index', {classes: results});
+
+  })
 
 });
+
+app.use('/users',usersRoute);
+app.use('/classes',classesRoute);
+
 /*
 app.get('/login', function(req, res){
   res.sendFile('./landing.html');

@@ -82,7 +82,15 @@
                     len = maxLen;
                 }
                 console.log(doc);
-                
+                /*
+                $("#ex-events").children().each(function (i) {
+                        var line = doc[i].lesson + " " + doc[i].subject;
+                        console.log(line);
+                        $(this).html("Line");
+            
+                }) ;
+            
+                */
                 }
             })
             }
@@ -149,7 +157,50 @@
 
 <body>
 
-    {{{body}}}
+    <div id='wrap'>
+
+        <div id='external-events'>
+            <h4>Draggable Events</h4>
+            <p>
+                <input type='button' id='save-cal' value='Save Calendar'/>
+            
+            </p>
+            <div id="ex-events">
+            
+            <div class='fc-event'>Line</div>
+            <div class='fc-event'></div>
+            <div class='fc-event'></div>
+            <div class='fc-event'></div>
+            <div class='fc-event'></div>
+            <div class='fc-event'></div>
+            <div class='fc-event'></div>
+            <div class='fc-event'></div>
+            <div class='fc-event'></div>
+            <div class='fc-event'></div>
+            <div class='fc-event'></div>
+            <div class='fc-event'></div>
+            <div class='fc-event'></div>
+            <div class='fc-event'></div>
+            <div class='fc-event'></div>
+            <div class='fc-event'></div>
+            <div class='fc-event'></div>
+            <div class='fc-event'></div>
+            
+        
+            </div>
+            <p>
+                <input type='checkbox' id='drop-remove'  checked />
+                <label for='drop-remove'>remove after drop</label>
+            </p>
+            
+        </div>
+
+        <div id='calendar'></div>
+
+        <div style='clear:both'></div>
+
+    </div>
+
 </body>
 
 </html>

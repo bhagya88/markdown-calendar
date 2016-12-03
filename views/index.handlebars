@@ -1,2 +1,27 @@
-	<h2>Welcome! Please log in.</h2>
-	<a href="/auth/github/callback">Login with GitHub</a>
+<div id='wrap'>
+
+        <div id='external-events'>
+            <h4>Classes</h4>
+            <p>
+                <input type='button' id='save-cal' value='Save Calendar'/>
+            
+            </p>
+   
+            {{#each classes }}
+  				<div class='fc-event'>{{lesson}}  {{subject}}</div>
+			{{/each}}
+
+        
+    
+            <p>
+                <input type='checkbox' id='drop-remove'  checked />
+                <label for='drop-remove'>remove after drop</label>
+            </p>
+            
+        </div>
+
+        <div id='calendar'></div>
+
+        <div style='clear:both'></div>
+
+    </div>
