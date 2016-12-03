@@ -117,7 +117,7 @@ app.get('/account', ensureAuthenticated, function(req, res){
   }).catch(function(err) {
     console.log('models.Class.findAll');
     console.log(err);
-  }
+  })
 
 }).catch(function(err) {
   console.log('app.get /account');
