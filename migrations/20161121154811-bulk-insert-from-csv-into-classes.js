@@ -16,7 +16,7 @@ module.exports = {
               }else{
            
                 // convert csv file contents to array of objects
-                  var classesArr = contents.trim().split('\n')  // converts it into array of lines
+                  var classesArr = contents.trim().split(/\r?\n/)  // converts it into array of lines
 
                               // converts each line into array of columns values
                               .map(function(line){
