@@ -70,7 +70,7 @@
            businessHours: {
             start: moment().format('HH:mm'), /* Current Hour/Minute 24H format */
             end: '17:00', // 5pm? set to whatever
-            dow: [1,2,3,4,6] // Day of week. If you don't set it, Sat/Sun are gray too
+            dow: [0,7] // Day of week. If you don't set it, Sat/Sun are gray too
             },
             eventConstraint:"businessHours",
            eventReceive:function(event){
