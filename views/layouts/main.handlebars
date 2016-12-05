@@ -24,6 +24,7 @@
 <script>
     $(document).ready(function() {
 
+        var scheduledEvents =[];
 
         /* initialize the external events
         -----------------------------------------------------------------*/
@@ -63,7 +64,22 @@
                     // if so, remove the element from the "Draggable Events" list
                     $(this).remove();
                 }
-            }
+
+
+            },  
+            timeFormat:'YYYY-MM-dd HH:mm:ss',
+           eventReceive:function(event){
+            scheduledEvents.push({
+                lesson:event.title.split(' ')[0],
+                date1: event.start._d
+
+            });
+
+            console.log(event);
+            console.log(scheduledEvents);
+
+           }
+
             /*
             events: function(start, end, timezone, callback) {
              $.ajax({
